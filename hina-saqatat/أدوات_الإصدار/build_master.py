@@ -171,7 +171,7 @@ def process_article(num, text):
     final_entries = []
     for local_, grefs, t, spans in entries:
         g, method = grade_of(num, t)
-        mg = MANUAL.get(f'{num}:{local_}')
+        mg = MANUAL.get(f'{num}|{norm_src(t)}')
         if mg: g, method = mg, 'manual'
         body = t if t.endswith(('.', '؛')) else t + '.'
         body += f' الدرجة: **{g}**.'
